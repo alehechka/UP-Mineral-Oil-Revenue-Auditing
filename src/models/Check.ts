@@ -1,4 +1,4 @@
-import PropertyModel from './Property';
+import ProductionQuantityModel from './ProductionQuantity';
 import OperatorModel from './Operator';
 
 export default interface Operator {
@@ -7,5 +7,6 @@ export default interface Operator {
     checkDate: firebase.firestore.Timestamp;
     checkNumber: number;
     operator: OperatorModel;
+    productionQuantities: ProductionQuantityModel[];
     uid: string;
 }

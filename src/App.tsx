@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import OperatorDetails from './components/operators/OperatorDetails';
 import EditProperty from './components/properties/EditProperty';
 import CheckDetails from './components/checks/CheckDetails';
+import OperatorForm from './components/operators/OperatorForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
         <PrivateRoute path="/operator/:id" component={OperatorDetails} />
+        <PrivateRoute path="/createOperator" component={OperatorForm} />
         <PrivateRoute path="/editProperty/:id" component={EditProperty} />
         <PrivateRoute path="/check/:id" component={CheckDetails} />
       </Switch>

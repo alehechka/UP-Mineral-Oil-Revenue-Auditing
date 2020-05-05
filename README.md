@@ -12,11 +12,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
@@ -27,18 +22,43 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `firebase deploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Requires the firebase-tools package to be installed globally.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install -g firebase-tools
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Firebase configuration is setup to use Firebase project created by Adam Lehechka. So deploying without changing these settings will fail due to lack of permissions.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To update configurations, first go to the [Firebase Console](https://console.firebase.google.com/) and create a new project. Once the instance has been created: 
+ - Go to **Authentication** and enable email/password sign-in. 
+ - Go to **Database** and create an instance. 
+ - Go to **Hosting** and create an instance. 
+ - Go to **Project Settings**, scroll to the bottom and add a Web application. When you are brought back to the Settings page, scroll down to your apps, change the Firebase SDK snippet to Config, and copy the code snippet. 
+ - In the repository, go to */src/config/firebase.ts* and paste your firebaseConfig over the one contained in the file. 
 
-## Learn More
+Once all steps are complete, you will need to install node_modules to the base application and functions, to do so at the root director run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+cd .\functions
+
+npm install
+```
+
+After installing, you can deploy all firestore rules, cloud functions, and the site itself at the root directory by running:
+
+```
+npm run build
+
+firebase login
+
+firebase use --add
+(select your created project)
+
+firebase deploy
+```
+

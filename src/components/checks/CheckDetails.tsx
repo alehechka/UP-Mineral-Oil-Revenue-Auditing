@@ -4,16 +4,14 @@ import CheckModel from "../../models/Check";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
-import ProductionQuantityModel from "../../models/ProductionQuantity";
 import OperatorSummary from "../operators/OperatorSummary";
 import QuantityTable from "../productions/QuantityTable";
 
 interface Props {
     check: CheckModel;
-    productionQuantity: ProductionQuantityModel[];
 }
 
-const CheckDetails = ({ check, productionQuantity }: Props) => {
+const CheckDetails = ({ check }: Props) => {
     if (check) {
         return (
             <div className="container dashboard project-list section">
@@ -33,7 +31,7 @@ const CheckDetails = ({ check, productionQuantity }: Props) => {
                         <OperatorSummary operator={check.operator} />
                     </div>
                 </div>
-                <QuantityTable productionQuantities={productionQuantity} />
+                <QuantityTable productionQuantities={check.productionQuantities} />
             </div>
         );
     } else {
@@ -51,7 +49,6 @@ const mapStateToProps = (state: any, ownProps: any) => {
     const check = checks ? checks[id] : null;
     return {
         check,
-        productionQuantity: state.firestore.data.productionQuantity
     };
 };
 
@@ -61,7 +58,6 @@ export default compose(
         const checkUID = props.match.params.id;
         return [
             { collection: "checks", doc: checkUID },
-            { collection: "productionQuantity", where: [['check.uid', '==', checkUID]], }
         ];
     })
 )(CheckDetails);

@@ -1,10 +1,8 @@
 import PropertyModel from './Property';
-import OperatorModel from './Operator';
-import CheckModel from './Check';
 
 export default interface Operator {
     id?: string;
-    saleDate?: firebase.firestore.Timestamp;
+    saleDate: firebase.firestore.Timestamp;
     productionCode?: string;
     bblMcf?: string;
     btuGrav?: string;
@@ -21,8 +19,6 @@ export default interface Operator {
     deductionCode?: string;
     deductions?: number;
     ownerNetValue?: number;
-    properties: PropertyModel;
-    operator: OperatorModel;
-    check: CheckModel; 
+    property: PropertyModel;
     uid?: string;
 }
