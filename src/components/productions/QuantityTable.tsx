@@ -17,28 +17,34 @@ const mapData = (inputData: QuantityModel[]) => {
 }
 
 const QuantityTable = ({productionQuantities}: Props) => {
-    console.log(productionQuantities)
-    const columns: any = [
-        {title: "Sale Date", field: "saleDate", render: (rowData:any) => <div>{moment(rowData.saleDate).calendar()}</div>},
-        {title: "Production Code", field: "productionCode"},
-        {title: "BBL MCF", field: "bblMcf"},
-        {title: "BTU GRAV", field: "btuGrav"},
-        {title: "Price", field: "price", type: "currency"},
-        {title: "Gross Value", field: "grossValue", type: "currency"},
-        {title: "Gross Taxes", field: "grossTaxes", type: "currency"},
-        {title: "Gross Deducts", field: "grossDeducts", type: "currency"},
-        {title: "Net Value", field: "netValue", type: "currency"},
-        {title: "Decimal Interest", field: "decimalInterest"},
-        {title: "Int Type", field: "intType"},
-        {title: "Owner Gross Value", field: "ownerGrossValue", type: "currency"},
-        {title: "Tax Code", field: "taxCode"},
-        {title: "Owner State Tax", field: "ownerStateTax", type: "currency"},
-        {title: "Deduction Code", field: "deductionCode"},
-        {title: "Deductions", field: "deductions", type: "currency"},
-        {title: "Owner Net Value", field: "ownerNetValue", type: "currency"},
-        {title: "Property Name", field: "property.name"},
 
-    ];
+    const [columnSwitches, setColumnSwitches] = React.useState({saleDate: true, price: true, netValue: true, property: {name: true}} as any);
+
+    const [columns, setColumns] = React.useState([] as any);
+
+    React.useEffect(() => {
+        let newColumns: any[] = [];
+        columnSwitches.saleDate && newColumns.push({title: "Sale Date", field: "saleDate", render: (rowData:any) => <div>{moment(rowData.saleDate).calendar()}</div>});
+        columnSwitches.productionCode && newColumns.push({title: "Production Code", field: "productionCode"});
+        columnSwitches.bblMcf && newColumns.push({title: "BBL MCF", field: "bblMcf"});
+        columnSwitches.btuGrav && newColumns.push({title: "BTU GRAV", field: "btuGrav"});
+        columnSwitches.price && newColumns.push({title: "Price", field: "price", type: "currency"});
+        columnSwitches.grossValue && newColumns.push({title: "Gross Value", field: "grossValue", type: "currency"});
+        columnSwitches.grossTaxes && newColumns.push({title: "Gross Taxes", field: "grossTaxes", type: "currency"});
+        columnSwitches.grossDeducts && newColumns.push({title: "Gross Deducts", field: "grossDeducts", type: "currency"});
+        columnSwitches.netValue && newColumns.push({title: "Net Value", field: "netValue", type: "currency"});
+        columnSwitches.decimalInterest && newColumns.push({title: "Decimal Interest", field: "decimalInterest"});
+        columnSwitches.intType && newColumns.push({title: "Interest Type", field: "intType"});
+        columnSwitches.ownerGrossValue && newColumns.push({title: "Owner Gross Value", field: "ownerGrossValue", type: "currency"});
+        columnSwitches.taxCode && newColumns.push({title: "Tax Code", field: "taxCode"});
+        columnSwitches.ownerStateTax && newColumns.push({title: "Owner State Tax", field: "ownerStateTax", type: "currency"});
+        columnSwitches.deductionCode && newColumns.push({title: "Deduction Code", field: "deductionCode"});
+        columnSwitches.deductions && newColumns.push({title: "Deductions", field: "deductions", type: "currency"});
+        columnSwitches.ownerNetValue && newColumns.push({title: "Owner Net Value", field: "ownerNetValue", type: "currency"});
+        columnSwitches.property?.name && newColumns.push({title: "Property Name", field: "property.name"});
+        setColumns(newColumns);
+    }, [columnSwitches])
+
     const [data, setData] = React.useState(mapData(productionQuantities));
     return (
         <div>

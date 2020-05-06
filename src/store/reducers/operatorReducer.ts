@@ -1,4 +1,4 @@
-import { OperatorActionTypes, CREATE_OPERATOR, CREATE_OPERATOR_ERROR } from '../types/operatorTypes';
+import { OperatorActionTypes, CREATE_OPERATOR, CREATE_OPERATOR_ERROR, DELETE_OPERATOR } from '../types/operatorTypes';
 import OperatorModel from '../../models/Operator';
 
 interface State {
@@ -22,6 +22,11 @@ const operatorReducer = (state: State = initState, action: OperatorActionTypes) 
                 ...state,
                 err: action.err
             };
+        case DELETE_OPERATOR:
+            return {
+                ...state,
+                operator: null
+            }
         default:
             return state;
     }

@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Dashboard = (props: Props) => {
-
   return (
     <div className="dashboard container">
       <h5>Operators</h5>

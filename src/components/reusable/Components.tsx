@@ -68,3 +68,16 @@ export function Select({ register, options, name, label, ...rest }: SelectProps)
         </div>
     );
 }
+
+export function AddRemoveButton(props: { title: string, active: any }) {
+
+    return (
+
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h5>{props.title}</h5>
+            <button onClick={() => props.active[1](!props.active[0])} className={props.active[0] ? "btn red lighten-1" : "btn"} >
+                <i className={props.active[0] ? "material-icons" : "material-icons"}>{props.active[0] ? "delete" : "add"}</i>
+            </button>
+        </div>
+    );
+}

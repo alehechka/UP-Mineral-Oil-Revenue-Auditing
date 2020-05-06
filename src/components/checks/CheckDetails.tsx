@@ -20,7 +20,7 @@ const CheckDetails = ({ check }: Props) => {
                         <div className="card z-depth-1">
                             <div className="card-content">
                                 <span className="card-title">Check {check.checkNumber}</span>
-                                <p>Amount: {check.amount}</p>
+                                <p>Amount: ${check.amount}</p>
                             </div>
                             <div className="card-action grey lighten-4 grey-text">
                                 <div>Date: {moment(check.checkDate?.toDate()).calendar()}</div>
@@ -28,6 +28,7 @@ const CheckDetails = ({ check }: Props) => {
                         </div>
                     </div>
                     <div className="col s12 m5 offset-m1">
+                        <h6>Operator</h6>
                         <OperatorSummary operator={check.operator} />
                     </div>
                 </div>

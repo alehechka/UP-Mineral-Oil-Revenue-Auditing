@@ -1,4 +1,4 @@
-import { OperatorActionTypes, CREATE_OPERATOR, CREATE_OPERATOR_ERROR } from '../types/operatorTypes';
+import { OperatorActionTypes, CREATE_OPERATOR, CREATE_OPERATOR_ERROR, DELETE_OPERATOR } from '../types/operatorTypes';
 import OperatorModel from '../../models/Operator';
 
 interface Functions {
@@ -24,5 +24,11 @@ export const createOperator = (operator: OperatorModel) => {
         }).catch((err: Error) => {
             dispatch({ type: CREATE_OPERATOR_ERROR, err });
         })
+    }
+}
+
+export const removeOperator = () => {
+    return (dispatch: (action: OperatorActionTypes) => void) => {
+        dispatch({type: DELETE_OPERATOR})
     }
 }
