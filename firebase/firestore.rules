@@ -10,15 +10,15 @@ service cloud.firestore {
       allow read: if request.auth.uid != null;
       allow write: if request.auth.uid != null;
     }
-    match /properties/{propertyId} {
+    match /operators/{operatorId}/properties/{propertyId} {
       allow read: if request.auth.uid != null;
       allow write: if request.auth.uid != null;
     }
-    match /checks/{checkId} {
+    match /operators/{operatorId}/checks/{checkId} {
       allow read: if request.auth.uid != null;
       allow write: if request.auth.uid != null;
     }
-    match /productionQuantity/{quantityId} {
+    match /operators/{operatorId}/checks/{checkId}/productionQuantities/{quantityId} {
       allow read: if request.auth.uid != null;
       allow write: if request.auth.uid != null;
     }

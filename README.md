@@ -1,3 +1,9 @@
+## Hosted Application
+
+https://up-mora.web.app/
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -32,12 +38,13 @@ npm install -g firebase-tools
 
 Firebase configuration is setup to use Firebase project created by Adam Lehechka. So deploying without changing these settings will fail due to lack of permissions.
 
-To update configurations, first go to the [Firebase Console](https://console.firebase.google.com/) and create a new project. Once the instance has been created: 
- - Go to **Authentication** and enable email/password sign-in. 
- - Go to **Database** and create an instance. 
- - Go to **Hosting** and create an instance. 
- - Go to **Project Settings**, scroll to the bottom and add a Web application. When you are brought back to the Settings page, scroll down to your apps, change the Firebase SDK snippet to Config, and copy the code snippet. 
- - In the repository, go to */src/config/firebase.ts* and paste your firebaseConfig over the one contained in the file. 
+To update configurations, first go to the [Firebase Console](https://console.firebase.google.com/) and create a new project. Once the instance has been created:
+
+- Go to **Authentication** and enable email/password sign-in.
+- Go to **Database** and create an instance.
+- Go to **Hosting** and create an instance.
+- Go to **Project Settings**, scroll to the bottom and add a Web application. When you are brought back to the Settings page, scroll down to your apps, change the Firebase SDK snippet to Config, and copy the code snippet.
+- In the repository, go to _/src/config/firebase.ts_ and paste your firebaseConfig over the one contained in the file.
 
 Once all steps are complete, you will need to install node_modules to the base application and functions, to do so at the root director run:
 
@@ -61,4 +68,3 @@ firebase use --add
 
 firebase deploy
 ```
-

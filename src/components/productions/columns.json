@@ -1,0 +1,106 @@
+{
+	"saleDate": {
+		"title": "Sale Date",
+		"field": "saleDate"
+	},
+	"productionCode": {
+		"title": "Production Code",
+		"field": "productionCode"
+	},
+	"bblMcf": {
+		"title": "BBL MCF",
+		"field": "bblMcf",
+		"searchable": false,
+		"filtering": false
+	},
+	"btuGrav": {
+		"title": "BTU GRAV",
+		"field": "btuGrav",
+		"searchable": false,
+		"filtering": false
+	},
+	"price": {
+		"title": "Price",
+		"field": "price",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"grossValue": {
+		"title": "Gross Taxes",
+		"field": "grossTaxes",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"grossTaxes": {
+		"title": "Gross Taxes",
+		"field": "grossTaxes",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"grossDeducts": {
+		"title": "Gross Deducts",
+		"field": "grossDeducts",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"netValue": {
+		"title": "Net Value",
+		"field": "netValue",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"decimalInterest": {
+		"title": "Decimal Interest",
+		"field": "decimalInterest",
+		"searchable": false,
+		"filtering": false
+	},
+	"interestType": {
+		"title": "Interest Type",
+		"field": "interestType"
+	},
+	"ownerGrossValue": {
+		"title": "Owner Gross Value",
+		"field": "ownerGrossValue",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"taxCode": {
+		"title": "Tax Code",
+		"field": "taxCode"
+	},
+	"ownerStateTax": {
+		"title": "Owner State Tax",
+		"field": "ownerStateTax",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"deductionCode": {
+		"title": "Deduction Code",
+		"field": "deductionCode"
+	},
+	"deductions": {
+		"title": "Deductions",
+		"field": "deductions",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"ownerNetValue": {
+		"title": "Owner Net Value",
+		"field": "ownerNetValue",
+		"type": "currency",
+		"searchable": false,
+		"filtering": false
+	},
+	"property": {
+		"name": { "title": "Property Name", "field": "property.name" }
+	}
+}

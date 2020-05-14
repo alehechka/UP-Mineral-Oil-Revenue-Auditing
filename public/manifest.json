@@ -1,25 +1,25 @@
 {
-  "short_name": "UP MORA",
-  "name": "Union Pacific: Mineral & Oil Revenue Auditing",
-  "icons": [
-    {
-      "src": "uplogo.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/ico"
-    },
-    {
-      "src": "uplogo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "uplogo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"short_name": "UP MORA",
+	"name": "Union Pacific: Mineral & Oil Revenue Auditing",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/ico"
+		},
+		{
+			"src": "uplogo.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "uplogo.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff"
 }
