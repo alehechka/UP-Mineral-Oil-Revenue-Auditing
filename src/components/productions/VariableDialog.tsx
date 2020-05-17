@@ -7,25 +7,28 @@ import { Grid, Checkbox, FormControlLabel } from '@material-ui/core';
 interface Props {
 	dialogOpen: boolean;
 	closeDialog: () => void;
-	columnSwitches: any;
-	setColumnSwitches: (switches: any) => void;
-	defaultColumns: any;
+	setColumns: (columns: any[]) => void;
+	columns: any[];
 }
 
-const VariableModal = ({
-	dialogOpen,
-	closeDialog,
-	columnSwitches,
-	setColumnSwitches,
-	defaultColumns,
-}: Props) => {
+const VariableDialog = ({ dialogOpen, closeDialog, setColumns, columns }: Props) => {
+	const state = React.useState({});
+
 	const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { checked, name } = e.target;
-		setColumnSwitches({ ...columnSwitches, [name]: checked });
+		const temp = columns;
+		temp[parseInt(name)].hidden = !checked;
+		setColumns(temp);
+		state[1]({ reset: false });
 	};
 
 	const resetColumnSwitches = () => {
-		setColumnSwitches(defaultColumns);
+		const temp = columns;
+		for (let column of temp) {
+			column.hidden = true;
+		}
+		setColumns(temp);
+		state[1]({ reset: true });
 	};
 
 	return (
@@ -35,14 +38,14 @@ const VariableModal = ({
 			</DialogTitle>
 			<DialogContent dividers>
 				<Grid container spacing={2}>
-					{Object.keys(columnSwitches).map((key) => {
+					{columns.map((column, index) => {
 						return (
-							<Grid item xs={4} key={key}>
+							<Grid item xs={4} key={index}>
 								<FormControlLabel
 									control={
-										<Checkbox checked={columnSwitches[key]} onChange={handleCheckboxChange} name={key} />
+										<Checkbox checked={!column.hidden} onChange={handleCheckboxChange} name={`${index}`} />
 									}
-									label={key}
+									label={column.title}
 								/>
 							</Grid>
 						);
@@ -61,4 +64,4 @@ const VariableModal = ({
 	);
 };
 
-export default VariableModal;
+export default VariableDialog;
